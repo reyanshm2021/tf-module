@@ -85,3 +85,13 @@ variable "disable_api_stop" {
   type = bool
   default = true
 }
+
+variable "instance_tags" {
+  description = "Map of tags to assign to the resources"
+  type        = map(string)
+  default = {
+    Name        = "example-instance"
+    Environment = "test"
+    Owner       = "devops-team"
+  }
+}

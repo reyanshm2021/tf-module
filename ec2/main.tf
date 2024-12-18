@@ -6,14 +6,5 @@ resource "aws_instance" "ec2" {
   key_name                    = var.key_name
   #subnet_id                   = var.subnet
   #vpc_security_group_ids      = var.security_groups
-
-  tags = merge(
-    {
-      Name = format("%s-%d", var.name, count.index + 1)
-    },
-    {
-      PROVISIONER = "Terraform"
-    },
-    var.tags,
-  )
+  tags = var.instance_tags
 }
